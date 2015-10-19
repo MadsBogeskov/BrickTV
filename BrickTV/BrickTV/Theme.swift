@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Theme: CustomStringConvertible
+class Theme: CustomStringConvertible
 {
     let ageFrom: Int
     let ageTo: Int
@@ -27,9 +27,9 @@ struct Theme: CustomStringConvertible
     let themeColor: String
     
     let thumbnailUrl: NSURL?
+    var thumbnailImage = UIImage(named: "ThemeThumbnailPlaceholder")!
     
     let title: String
-    let image = UIImage(named: "theme_thumb")!
     
     let trackingId: String
     
@@ -104,6 +104,18 @@ struct Theme: CustomStringConvertible
     var description: String {
         get {
             return "id: \(id) -> title: \(title)"
+        }
+    }
+}
+
+extension Theme {
+    func loadThumbnailImage(completion: () -> ()) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+            let image = UIImage(data: NSData(contentsOfURL: self.thumbnailUrl!)!)!
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.thumbnailImage = image
+                completion()
+            })
         }
     }
 }
