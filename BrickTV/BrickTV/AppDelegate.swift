@@ -16,17 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var catalog: Catalog?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        
-//        catalog = Catalog()
-//        catalog?.themes({ (s) -> () in
-//            
-//        })
         
         Catalog().themes { (themes) -> () in
             for theme in themes
             {
+                print(theme)
                 print(theme.videos({ (videos) -> () in
                     print(videos)
                 }))

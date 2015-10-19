@@ -17,6 +17,7 @@
 		E3B2E3AD1BD4F38C0015DD6B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2E3AC1BD4F38C0015DD6B /* Theme.swift */; };
 		E3B2E3AF1BD4FBEC0015DD6B /* AwesomeNetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2E3AE1BD4FBEC0015DD6B /* AwesomeNetworkLayer.swift */; };
 		E3B2E3B11BD4FECD0015DD6B /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2E3B01BD4FECD0015DD6B /* Video.swift */; };
+		E3B2E3B31BD5175E0015DD6B /* PlayableVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2E3B21BD5175E0015DD6B /* PlayableVideo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E3B2E3AC1BD4F38C0015DD6B /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		E3B2E3AE1BD4FBEC0015DD6B /* AwesomeNetworkLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeNetworkLayer.swift; sourceTree = "<group>"; };
 		E3B2E3B01BD4FECD0015DD6B /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		E3B2E3B21BD5175E0015DD6B /* PlayableVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayableVideo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				E3B2E3AA1BD4EF090015DD6B /* Catalog.swift */,
 				E3B2E3AC1BD4F38C0015DD6B /* Theme.swift */,
 				E3B2E3B01BD4FECD0015DD6B /* Video.swift */,
+				E3B2E3B21BD5175E0015DD6B /* PlayableVideo.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 				E3B2E39D1BD4C7A90015DD6B /* SecondViewController.swift in Sources */,
 				C5DB32001BD4E5E5009FC2A9 /* VideoPlayerViewController.swift in Sources */,
 				E3B2E3991BD4C7A90015DD6B /* AppDelegate.swift in Sources */,
+				E3B2E3B31BD5175E0015DD6B /* PlayableVideo.swift in Sources */,
 				E3B2E3AD1BD4F38C0015DD6B /* Theme.swift in Sources */,
 				E3B2E3B11BD4FECD0015DD6B /* Video.swift in Sources */,
 				E3B2E39B1BD4C7A90015DD6B /* FirstViewController.swift in Sources */,

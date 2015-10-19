@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Theme
+class Theme: CustomStringConvertible
 {
     let ageFrom: Int;
     let ageTo: Int;
     
     let bannerImages: String;
-    let description: String;
+    let themeDescription: String;
     
     let id: String;
     
@@ -37,7 +37,7 @@ class Theme
         self.ageFrom = json["AgeFrom"] as? Int ?? 0
         self.ageTo = json["AgeTo"] as? Int ?? 0
         self.bannerImages = json["BannerImages"] as? String ?? ""
-        self.description = json["Description"] as? String ?? ""
+        self.themeDescription = json["Description"] as? String ?? ""
         self.id = json["Id"] as? String ?? ""
         self.key = json["Key"] as? String ?? ""
         self.logoUrl = NSURL(string: json["LogoURL"] as? String ?? "")
@@ -50,7 +50,7 @@ class Theme
     
     func videos(completionHandler: [Video] -> ())
     {
-        let postData = "HiddenConstraints=\"LegoCatalogType\":\"LegoVideo\" AND \"LegoTheme\":\"Star Wars\"\nSelectProperties[]=LegoId,LegoTitle"
+        let postData = "HiddenConstraints=\"LegoCatalogType\":\"LegoVideo\" AND \"LegoTheme\":\"\(key)\"&SelectProperties[]=LegoId,LegoTitle"
         let UrlString = "https://wwwsecure.lego.com/query/api/search?applicationName=BrickTV&legoapikey=BrickTV%3A31-10-2015%231%231%23fZ%2BS%2FZ%2BzKIcUWw6%2BVIe2Jg%3D%3D"
         
         let url = NSURL(string: UrlString)!
@@ -74,19 +74,35 @@ class Theme
             guard let primaryResults = json["PrimaryResults"] as? NSDictionary else {
                 return
             }
-            
-            print (request)
-            print(json)
-            
             guard let items = primaryResults["Items"] as? NSArray else {
                 return
             }
             
-            let videos = items.map {
-                Video(json: $0 as! NSDictionary)
+            var requests: [NSMutableURLRequest] = []
+            for item in (items as? [NSDictionary])!
+            {
+                let id = item["Id"] as! String
+                
+                let trimmedId = id.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "{}"))
+                
+                guard let url = NSURL(string: "https://wwwsecure.lego.com/en-US/mediaplayer/api/video.json/\(trimmedId)") else {
+                    continue
+                }
+                
+                requests.append(NSMutableURLRequest(URL: url))//createURL("Video", resourceId: trimmedId)))
             }
             
-            completionHandler(videos)
+            doLotsOfRequests(requests, createObject: { (dic) -> Video in
+                Video(json: dic)
+                }, completionHandler: { (objs) -> () in
+                    completionHandler(objs)
+            })
         }).resume()
+    }
+    
+    var description: String {
+        get {
+            return "id: \(id) -> title: \(title)"
+        }
     }
 }

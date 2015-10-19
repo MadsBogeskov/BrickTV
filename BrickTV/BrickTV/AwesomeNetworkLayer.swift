@@ -13,9 +13,23 @@ public func createURL(service: String, resourceId: String) -> NSURL
     return NSURL(string: "http://services.catalogs.lego.com/api/\(service)/\(resourceId)?applicationName=BrickTV")!
 }
 
+public func tryGetUrl(dictionary: NSDictionary, key: String) -> NSURL?
+{
+    if let value = dictionary[key] as? String, let url = NSURL(string: value)
+    {
+        return url
+    }
+    
+    return nil
+}
+
 public func doLotsOfRequests<T>(requests: [NSURLRequest], createObject: (NSDictionary) -> T, completionHandler: ([T] -> ()))
 {
-    let request = requests.last!
+    guard let request = requests.last else {
+        completionHandler([])
+        return
+    }
+
     NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
         guard let data = data else {
             return
@@ -41,7 +55,11 @@ public func doLotsOfRequests<T>(requests: [NSURLRequest], createObject: (NSDicti
 
 public func doRequest<T>(requests: [NSURLRequest], createObject: (NSDictionary) -> T, currentObjects: [T], completionHandler: ([T] -> ()))
 {
-    let request = requests.last!
+    guard let request = requests.last else {
+        completionHandler(currentObjects)
+        return
+    }
+    
     NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
         guard let data = data else {
             return
