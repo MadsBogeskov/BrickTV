@@ -10,6 +10,9 @@
 		C53C22931BD514DD00A9D9B9 /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53C22921BD514DD00A9D9B9 /* ThemeViewController.swift */; };
 		C5DB32001BD4E5E5009FC2A9 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DB31FF1BD4E5E5009FC2A9 /* VideoPlayerViewController.swift */; };
 		C5DB32021BD4F859009FC2A9 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DB32011BD4F859009FC2A9 /* ThemesViewController.swift */; };
+		E322B3801BD523A100F023DF /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E322B37F1BD523A100F023DF /* TVServices.framework */; };
+		E322B3831BD523A100F023DF /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E322B3821BD523A100F023DF /* ServiceProvider.swift */; };
+		E322B3871BD523A100F023DF /* BrickTV Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E322B37D1BD523A100F023DF /* BrickTV Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E3B2E3991BD4C7A90015DD6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2E3981BD4C7A90015DD6B /* AppDelegate.swift */; };
 		E3B2E39B1BD4C7A90015DD6B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2E39A1BD4C7A90015DD6B /* FirstViewController.swift */; };
 		E3B2E39D1BD4C7A90015DD6B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2E39C1BD4C7A90015DD6B /* SecondViewController.swift */; };
@@ -21,10 +24,38 @@
 		E3B2E3B11BD4FECD0015DD6B /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2E3B01BD4FECD0015DD6B /* Video.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E322B3851BD523A100F023DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3B2E38D1BD4C7A90015DD6B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E322B37C1BD523A100F023DF;
+			remoteInfo = "BrickTV Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E322B38B1BD523A100F023DF /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E322B3871BD523A100F023DF /* BrickTV Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		C53C22921BD514DD00A9D9B9 /* ThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
 		C5DB31FF1BD4E5E5009FC2A9 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		C5DB32011BD4F859009FC2A9 /* ThemesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
+		E322B37D1BD523A100F023DF /* BrickTV Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "BrickTV Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E322B37F1BD523A100F023DF /* TVServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVServices.framework; path = System/Library/Frameworks/TVServices.framework; sourceTree = SDKROOT; };
+		E322B3821BD523A100F023DF /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		E322B3841BD523A100F023DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3B2E3951BD4C7A90015DD6B /* BrickTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrickTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3B2E3981BD4C7A90015DD6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3B2E39A1BD4C7A90015DD6B /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +70,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E322B37A1BD523A100F023DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E322B3801BD523A100F023DF /* TVServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E3B2E3921BD4C7A90015DD6B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -49,10 +88,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E322B37E1BD523A100F023DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E322B37F1BD523A100F023DF /* TVServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E322B3811BD523A100F023DF /* BrickTV Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E322B3821BD523A100F023DF /* ServiceProvider.swift */,
+				E322B3841BD523A100F023DF /* Info.plist */,
+			);
+			path = "BrickTV Extension";
+			sourceTree = "<group>";
+		};
 		E3B2E38C1BD4C7A90015DD6B = {
 			isa = PBXGroup;
 			children = (
 				E3B2E3971BD4C7A90015DD6B /* BrickTV */,
+				E322B3811BD523A100F023DF /* BrickTV Extension */,
+				E322B37E1BD523A100F023DF /* Frameworks */,
 				E3B2E3961BD4C7A90015DD6B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				E3B2E3951BD4C7A90015DD6B /* BrickTV.app */,
+				E322B37D1BD523A100F023DF /* BrickTV Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,6 +155,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E322B37C1BD523A100F023DF /* BrickTV Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E322B3881BD523A100F023DF /* Build configuration list for PBXNativeTarget "BrickTV Extension" */;
+			buildPhases = (
+				E322B3791BD523A100F023DF /* Sources */,
+				E322B37A1BD523A100F023DF /* Frameworks */,
+				E322B37B1BD523A100F023DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BrickTV Extension";
+			productName = "BrickTV Extension";
+			productReference = E322B37D1BD523A100F023DF /* BrickTV Extension.appex */;
+			productType = "com.apple.product-type.tv-app-extension";
+		};
 		E3B2E3941BD4C7A90015DD6B /* BrickTV */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E3B2E3A61BD4C7A90015DD6B /* Build configuration list for PBXNativeTarget "BrickTV" */;
@@ -103,10 +179,12 @@
 				E3B2E3911BD4C7A90015DD6B /* Sources */,
 				E3B2E3921BD4C7A90015DD6B /* Frameworks */,
 				E3B2E3931BD4C7A90015DD6B /* Resources */,
+				E322B38B1BD523A100F023DF /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E322B3861BD523A100F023DF /* PBXTargetDependency */,
 			);
 			name = BrickTV;
 			productName = BrickTV;
@@ -122,6 +200,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = LEGO;
 				TargetAttributes = {
+					E322B37C1BD523A100F023DF = {
+						CreatedOnToolsVersion = 7.1;
+					};
 					E3B2E3941BD4C7A90015DD6B = {
 						CreatedOnToolsVersion = 7.1;
 					};
@@ -141,11 +222,19 @@
 			projectRoot = "";
 			targets = (
 				E3B2E3941BD4C7A90015DD6B /* BrickTV */,
+				E322B37C1BD523A100F023DF /* BrickTV Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E322B37B1BD523A100F023DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E3B2E3931BD4C7A90015DD6B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -158,6 +247,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E322B3791BD523A100F023DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E322B3831BD523A100F023DF /* ServiceProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E3B2E3911BD4C7A90015DD6B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -177,6 +274,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		E322B3861BD523A100F023DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E322B37C1BD523A100F023DF /* BrickTV Extension */;
+			targetProxy = E322B3851BD523A100F023DF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		E3B2E39E1BD4C7A90015DD6B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -189,6 +294,28 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E322B3891BD523A100F023DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "BrickTV Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lego.BrickTV.BrickTV-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E322B38A1BD523A100F023DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "BrickTV Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lego.BrickTV.BrickTV-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		E3B2E3A41BD4C7A90015DD6B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -275,6 +402,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = BrickTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lego.BrickTV;
@@ -287,6 +415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = BrickTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lego.BrickTV;
@@ -297,6 +426,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E322B3881BD523A100F023DF /* Build configuration list for PBXNativeTarget "BrickTV Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E322B3891BD523A100F023DF /* Debug */,
+				E322B38A1BD523A100F023DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		E3B2E3901BD4C7A90015DD6B /* Build configuration list for PBXProject "BrickTV" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

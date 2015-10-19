@@ -49,11 +49,16 @@ class ThemeCell: UICollectionViewCell {
 }
 
 class ThemesViewController: UICollectionViewController {
-    let themes = [Theme]()
+    var themes = [Theme]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = false
+        
+        Catalog().themes { (t) -> () in
+            self.themes = t
+            self.collectionView?.reloadData()
+        }
     }
 }
 

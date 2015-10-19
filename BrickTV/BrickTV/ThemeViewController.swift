@@ -24,6 +24,8 @@ class ThemeViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = false
+        
+
     }
 }
 
@@ -42,7 +44,7 @@ extension ThemeViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        guard let cell = cell as? VideoCell else { fatalError("ahh ahh you didn't say the magic word!") }
+        guard let _ = cell as? VideoCell else { fatalError("ahh ahh you didn't say the magic word!") }
     }
 }
 
