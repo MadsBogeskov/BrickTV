@@ -1,5 +1,5 @@
 //
-//  ThemesViewController.swift
+//  ThemeViewController.swift
 //  BrickTV
 //
 //  Created by Morten Bøgh on 19/10/2015.
@@ -8,48 +8,18 @@
 
 import UIKit
 
-class ThemeCell: UICollectionViewCell {
-    static let reuseIdentifier = "ThemeCell"
+class VideoCell: UICollectionViewCell {
+    static let reuseIdentifier = "VideoCell"
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
-    // MARK: - Initialization
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        imageView.adjustsImageWhenAncestorFocused = true
-        imageView.clipsToBounds = false
-        label.alpha = 0.0
-    }
-    
-    // MARK: - UICollectionReusableView
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        label.alpha = 0.0
-    }
-    
-    // MARK: - UIFocusEnvironment
-    
-    override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
-        coordinator.addCoordinatedAnimations({ [unowned self] in
-            if self.focused {
-                self.label.alpha = 1.0
-            }
-            else {
-                self.label.alpha = 0.0
-            }
-            }, completion: nil)
-    }
-    
-    func populate(theme: Theme) {
-        label.text = theme.title
-        imageView.image = theme.image
+    func populdate(video: Video) {
+        
     }
 }
 
-class ThemesViewController: UICollectionViewController {
-    let themes = [Theme]()
+class ThemeViewController: UICollectionViewController {
+    var theme: Theme!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,28 +28,26 @@ class ThemesViewController: UICollectionViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-extension ThemesViewController {
+extension ThemeViewController {
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return themes.count
+        return 0
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCellWithReuseIdentifier(ThemeCell.reuseIdentifier, forIndexPath: indexPath)
+        return collectionView.dequeueReusableCellWithReuseIdentifier(VideoCell.reuseIdentifier, forIndexPath: indexPath)
     }
     
     override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        guard let cell = cell as? ThemeCell else { fatalError("ahh ahh you didn't say the magic word!") }
-        let theme = themes[indexPath.item]
-        cell.populate(theme)
+        guard let cell = cell as? VideoCell else { fatalError("ahh ahh you didn't say the magic word!") }
     }
 }
 
 // MARK: - UICollectionViewDelegate
-extension ThemesViewController {
+extension ThemeViewController {
     override func indexPathForPreferredFocusedViewInCollectionView(collectionView: UICollectionView) -> NSIndexPath? {
         return NSIndexPath(forItem: 0, inSection: 0)
     }
@@ -98,7 +66,7 @@ extension ThemesViewController {
             collectionView.deselectItemAtIndexPath(indexPath, animated: true)
             return false
         } else {
-            return true  
-        }  
+            return true
+        }
     }
 }

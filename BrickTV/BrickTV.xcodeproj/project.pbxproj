@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C53C22931BD514DD00A9D9B9 /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53C22921BD514DD00A9D9B9 /* ThemeViewController.swift */; };
 		C5DB32001BD4E5E5009FC2A9 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DB31FF1BD4E5E5009FC2A9 /* VideoPlayerViewController.swift */; };
 		C5DB32021BD4F859009FC2A9 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DB32011BD4F859009FC2A9 /* ThemesViewController.swift */; };
 		E3B2E3991BD4C7A90015DD6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2E3981BD4C7A90015DD6B /* AppDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C53C22921BD514DD00A9D9B9 /* ThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
 		C5DB31FF1BD4E5E5009FC2A9 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		C5DB32011BD4F859009FC2A9 /* ThemesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
 		E3B2E3951BD4C7A90015DD6B /* BrickTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrickTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,7 @@
 				E3B2E3A31BD4C7A90015DD6B /* Info.plist */,
 				C5DB31FF1BD4E5E5009FC2A9 /* VideoPlayerViewController.swift */,
 				E3B2E3AE1BD4FBEC0015DD6B /* AwesomeNetworkLayer.swift */,
+				C53C22921BD514DD00A9D9B9 /* ThemeViewController.swift */,
 				C5DB32011BD4F859009FC2A9 /* ThemesViewController.swift */,
 			);
 			path = BrickTV;
@@ -159,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C53C22931BD514DD00A9D9B9 /* ThemeViewController.swift in Sources */,
 				E3B2E3AF1BD4FBEC0015DD6B /* AwesomeNetworkLayer.swift in Sources */,
 				E3B2E39D1BD4C7A90015DD6B /* SecondViewController.swift in Sources */,
 				C5DB32001BD4E5E5009FC2A9 /* VideoPlayerViewController.swift in Sources */,

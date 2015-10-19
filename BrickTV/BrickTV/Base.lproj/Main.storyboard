@@ -99,6 +99,7 @@
                                 <connections>
                                     <outlet property="imageView" destination="SEy-33-WlU" id="FvR-uw-2rJ"/>
                                     <outlet property="label" destination="duc-Ze-bqE" id="qDc-aH-fx0"/>
+                                    <segue destination="PTV-RT-XBQ" kind="show" id="9vT-Ee-Mro"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -110,7 +111,71 @@
                     <tabBarItem key="tabBarItem" title="Themes" id="IDt-Oc-GBE"/>
                 </collectionViewController>
             </objects>
-            <point key="canvasLocation" x="2246" y="1852"/>
+            <point key="canvasLocation" x="1990" y="1924"/>
+        </scene>
+        <!--Theme-->
+        <scene sceneID="mge-II-W1N">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kQf-jr-PIP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <collectionViewController id="PTV-RT-XBQ" userLabel="Theme" customClass="ThemeViewController" customModule="BrickTV" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="KnB-zp-p3N">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="40" id="880-Wi-pQk">
+                            <size key="itemSize" width="320" height="200"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="80" minY="80" maxX="80" maxY="80"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="Tk2-8K-xtQ" customClass="VideoCell" customModule="BrickTV" customModuleProvider="target">
+                                <rect key="frame" x="80" y="220" width="340" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="340" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mY5-o0-by4">
+                                            <rect key="frame" x="0.0" y="0.0" width="340" height="130"/>
+                                            <animations/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72J-EP-qOV">
+                                            <rect key="frame" x="0.0" y="165" width="340" height="35"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="72J-EP-qOV" secondAttribute="bottom" id="6Pn-sX-wSd"/>
+                                    <constraint firstItem="mY5-o0-by4" firstAttribute="top" secondItem="Tk2-8K-xtQ" secondAttribute="top" id="KWq-KB-NIF"/>
+                                    <constraint firstItem="mY5-o0-by4" firstAttribute="leading" secondItem="Tk2-8K-xtQ" secondAttribute="leading" id="heH-v1-CFK"/>
+                                    <constraint firstItem="72J-EP-qOV" firstAttribute="leading" secondItem="Tk2-8K-xtQ" secondAttribute="leading" id="kgd-Ma-b3T"/>
+                                    <constraint firstAttribute="trailing" secondItem="72J-EP-qOV" secondAttribute="trailing" id="ozL-AZ-SHC"/>
+                                    <constraint firstAttribute="trailing" secondItem="mY5-o0-by4" secondAttribute="trailing" id="sKa-bw-GTt"/>
+                                    <constraint firstItem="72J-EP-qOV" firstAttribute="top" secondItem="mY5-o0-by4" secondAttribute="bottom" constant="35" id="sUz-Vt-70k"/>
+                                </constraints>
+                                <size key="customSize" width="340" height="200"/>
+                                <connections>
+                                    <outlet property="imageView" destination="mY5-o0-by4" id="2Lc-TQ-rkg"/>
+                                    <outlet property="label" destination="72J-EP-qOV" id="dVM-3P-ofg"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="PTV-RT-XBQ" id="3Qa-Wi-gd2"/>
+                            <outlet property="delegate" destination="PTV-RT-XBQ" id="Z8V-tc-Ybs"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+            </objects>
+            <point key="canvasLocation" x="1990" y="3205"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
