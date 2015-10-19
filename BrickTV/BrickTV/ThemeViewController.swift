@@ -13,8 +13,41 @@ class VideoCell: UICollectionViewCell {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
+    // MARK: - Initialization
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        imageView.adjustsImageWhenAncestorFocused = true
+        imageView.clipsToBounds = false
+        label.alpha = 0.0
+    }
+    
+    // MARK: - UICollectionReusableView
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        label.alpha = 0.0
+    }
+    
+    // MARK: - UIFocusEnvironment
+    
+    override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+        coordinator.addCoordinatedAnimations({ [unowned self] in
+            if self.focused {
+                self.label.alpha = 1.0
+            }
+            else {
+                self.label.alpha = 0.0
+            }
+            }, completion: nil)
+    }
+    
     func populdate(video: Video) {
-        
+        label.text = video.title
+        imageView.image = video.thumbnailImage
+        video.loadThumbnailImage() { [unowned self] in
+            self.imageView.image = video.thumbnailImage
+        }
     }
 }
 
@@ -32,11 +65,41 @@ class ThemeViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        UIView.animateWithDuration(0.35, delay: 0.5, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+        
+        UIView.animateWithDuration(0.35, delay: 1, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
             self.loadingIndicator.alpha = 1
-            }, completion: nil)
+            }) { (finished) -> Void in
+                self.theme.loadVideos({ (_) -> () in
+                    self.collectionView.reloadData()
+                    UIView.animateWithDuration(0.35, animations: { () -> Void in
+                        self.loadingView.alpha = 0
+                    })
+                })
+        }
     }
 }
+
+// MARK: - Segue
+extension ThemeViewController {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let videoPlayerViewController = segue.destinationViewController as? VideoPlayerViewController, cell = sender as? VideoCell, indexPath = self.collectionView?.indexPathForCell(cell) {
+            let video = theme.videos[indexPath.item]
+            
+            var adaptive: VideoFormat? = nil
+            var mp4s = [VideoFormat]()
+            for format in video.formats {
+                if format.quality == VideoFormat.Quality.Adaptive && format.format == VideoFormat.Format.M3U8 {
+                    adaptive = format
+                }
+                else if format.format == VideoFormat.Format.Mp4 {
+                    mp4s.append(format)
+                }
+            }
+            videoPlayerViewController.url = (adaptive != nil) ? adaptive!.url.absoluteString : mp4s.first!.url.absoluteString
+        }
+    }
+}
+
 
 // MARK: - UICollectionViewDataSource
 extension ThemeViewController: UICollectionViewDataSource {
@@ -45,7 +108,7 @@ extension ThemeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return theme.videos.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -53,7 +116,9 @@ extension ThemeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        guard let _ = cell as? VideoCell else { fatalError("ahh ahh you didn't say the magic word!") }
+        guard let cell = cell as? VideoCell else { fatalError("ahh ahh you didn't say the magic word!") }
+        let video = theme.videos[indexPath.item]
+        cell.populdate(video)
     }
 }
 

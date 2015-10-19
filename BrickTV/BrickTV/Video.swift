@@ -6,10 +6,9 @@
 //  Copyright © 2015 LEGO. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-struct Video: CustomStringConvertible
-{
+class Video: CustomStringConvertible {
     let id: String
     let videoFileId: String
     let title: String
@@ -17,6 +16,7 @@ struct Video: CustomStringConvertible
     let themeThumbnailUrl: NSURL?
     let thumbnailProcessed: NSURL?
     let thumbnailUrl: NSURL?
+    var thumbnailImage = UIImage(named: "ThemeThumbnailPlaceholder")!
     let videoDescription: String
     let imageLargeProcessed: NSURL?
     let formats: [VideoFormat]
@@ -117,6 +117,23 @@ class VideoFormat
         else
         {
             format = Format.Unknown
+        }
+    }
+}
+
+extension Video {
+    func loadThumbnailImage(completion: () -> ()) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+            guard let thumbnailUrl = self.thumbnailProcessed where thumbnailUrl.absoluteString.characters.count > 0 else {
+                completion()
+                return
+            }
+            
+            let image = UIImage(data: NSData(contentsOfURL: thumbnailUrl)!)!
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.thumbnailImage = image
+                completion()
+            })
         }
     }
 }

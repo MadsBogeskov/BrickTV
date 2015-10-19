@@ -48,7 +48,7 @@ class Theme: CustomStringConvertible {
         self.trackingId = json["TrackingId"] as? String ?? ""
     }
     
-    func videos(completionHandler: [Video] -> ())
+    func loadVideos(completionHandler: [Video] -> ())
     {
         let postData = "HiddenConstraints=\"LegoCatalogType\":\"LegoVideo\" AND \"LegoTheme\":\"\(key)\"&SelectProperties[]=LegoId,LegoTitle"
         let UrlString = "https://wwwsecure.lego.com/query/api/search?applicationName=BrickTV&legoapikey=BrickTV%3A31-10-2015%231%231%23fZ%2BS%2FZ%2BzKIcUWw6%2BVIe2Jg%3D%3D"
@@ -95,10 +95,15 @@ class Theme: CustomStringConvertible {
             doLotsOfRequests(requests, createObject: { (dic) -> Video in
                 Video(json: dic)
                 }, completionHandler: { (objs) -> () in
-                    completionHandler(objs)
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.videos = objs
+                        completionHandler(objs)
+                    })
             })
         }).resume()
     }
+    
+    var videos = [Video]()
     
     var description: String {
         get {
