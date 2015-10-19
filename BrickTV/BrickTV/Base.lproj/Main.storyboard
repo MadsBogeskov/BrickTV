@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="884" y="519" width="153" height="43"/>
+                                <rect key="frame" x="884" y="519" width="154" height="43"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
@@ -25,7 +25,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="863" y="570" width="194" height="17"/>
+                                <rect key="frame" x="863" y="570" width="195" height="17"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -46,6 +46,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2246" y="-640"/>
+        </scene>
+        <!--Themes-->
+        <scene sceneID="RhE-XA-VUv">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uk2-9I-axX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <collectionViewController id="7ms-sV-9db" customClass="ThemesViewController" customModule="BrickTV" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="J1t-hG-Iak">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="40" id="Xk1-ip-m8C">
+                            <size key="itemSize" width="320" height="200"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="80" minY="80" maxX="80" maxY="80"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ThemeCell" id="kBK-Tw-px0" customClass="ThemeCell" customModule="BrickTV" customModuleProvider="target">
+                                <rect key="frame" x="80" y="220" width="340" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="340" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SEy-33-WlU">
+                                            <rect key="frame" x="0.0" y="0.0" width="340" height="130"/>
+                                            <animations/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duc-Ze-bqE">
+                                            <rect key="frame" x="0.0" y="165" width="340" height="35"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="SEy-33-WlU" secondAttribute="trailing" id="Jcd-jU-WLO"/>
+                                    <constraint firstItem="SEy-33-WlU" firstAttribute="top" secondItem="kBK-Tw-px0" secondAttribute="top" id="YJE-XI-WkG"/>
+                                    <constraint firstAttribute="bottom" secondItem="duc-Ze-bqE" secondAttribute="bottom" id="YSF-c3-01J"/>
+                                    <constraint firstItem="SEy-33-WlU" firstAttribute="leading" secondItem="kBK-Tw-px0" secondAttribute="leading" id="p7u-ai-Gvf"/>
+                                    <constraint firstItem="duc-Ze-bqE" firstAttribute="leading" secondItem="kBK-Tw-px0" secondAttribute="leading" id="vlc-UG-k82"/>
+                                    <constraint firstAttribute="trailing" secondItem="duc-Ze-bqE" secondAttribute="trailing" id="vpF-Y2-wmg"/>
+                                    <constraint firstItem="duc-Ze-bqE" firstAttribute="top" secondItem="SEy-33-WlU" secondAttribute="bottom" constant="35" id="w6W-ri-AZR"/>
+                                </constraints>
+                                <size key="customSize" width="340" height="200"/>
+                                <connections>
+                                    <outlet property="imageView" destination="SEy-33-WlU" id="FvR-uw-2rJ"/>
+                                    <outlet property="label" destination="duc-Ze-bqE" id="qDc-aH-fx0"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="7ms-sV-9db" id="CP3-Sx-j8m"/>
+                            <outlet property="delegate" destination="7ms-sV-9db" id="xr0-TN-h0i"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Themes" id="IDt-Oc-GBE"/>
+                </collectionViewController>
+            </objects>
+            <point key="canvasLocation" x="2246" y="1852"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -74,12 +139,34 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pk5-Uv-zu0">
+                                <rect key="frame" x="884" y="687" width="152" height="86"/>
+                                <animations/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="onTouchPlayButton:" destination="8rJ-Kc-sve" eventType="primaryActionTriggered" id="Nq1-sK-KEG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ube-hZ-LDC">
+                                <rect key="frame" x="1056" y="687" width="183" height="86"/>
+                                <animations/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Play 2"/>
+                                <connections>
+                                    <segue destination="bc3-TU-ANS" kind="presentation" id="hHr-Kh-tGK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="pk5-Uv-zu0" firstAttribute="top" secondItem="NDk-cv-Gan" secondAttribute="bottom" constant="100" id="8tU-fM-krO"/>
+                            <constraint firstItem="pk5-Uv-zu0" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="B4g-h9-Xrg"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
+                            <constraint firstItem="ube-hZ-LDC" firstAttribute="top" secondItem="pk5-Uv-zu0" secondAttribute="top" id="Rip-fA-8DF"/>
+                            <constraint firstItem="ube-hZ-LDC" firstAttribute="leading" secondItem="pk5-Uv-zu0" secondAttribute="trailing" constant="20" id="oOp-i9-cDf"/>
                             <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
@@ -90,10 +177,10 @@
             </objects>
             <point key="canvasLocation" x="2246" y="624"/>
         </scene>
-        <!--Item-->
+        <!--Video Player-->
         <scene sceneID="OQN-qG-J57">
             <objects>
-                <viewController id="bc3-TU-ANS" customClass="VideoPlayerViewController" customModule="BrickTV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bc3-TU-ANS" userLabel="Video Player" customClass="VideoPlayerViewController" customModule="BrickTV" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PYG-ht-q8C"/>
                         <viewControllerLayoutGuide type="bottom" id="Nwn-CD-9sv"/>
@@ -103,7 +190,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="kSB-Xd-Qzf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ffz-4j-70P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,7 +209,7 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="bc3-TU-ANS" kind="relationship" relationship="viewControllers" id="4OZ-tk-Gn2"/>
+                        <segue destination="7ms-sV-9db" kind="relationship" relationship="viewControllers" id="n5w-z5-Mvr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
