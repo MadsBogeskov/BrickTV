@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Video: CustomStringConvertible
+struct Video: CustomStringConvertible
 {
     let id: String
     let videoFileId: String

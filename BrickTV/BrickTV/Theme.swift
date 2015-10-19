@@ -6,31 +6,32 @@
 //  Copyright © 2015 LEGO. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class Theme: CustomStringConvertible
+struct Theme: CustomStringConvertible
 {
-    let ageFrom: Int;
-    let ageTo: Int;
+    let ageFrom: Int
+    let ageTo: Int
     
-    let bannerImages: String;
-    let themeDescription: String;
+    let bannerImages: String
+    let themeDescription: String
     
-    let id: String;
+    let id: String
     
-    let key: String;
+    let key: String
     
-    let logoUrl: NSURL?;
+    let logoUrl: NSURL?
     
     let primaryImageUrl: NSURL?
     
-    let themeColor: String;
+    let themeColor: String
     
-    let thumbnailUrl: NSURL?;
+    let thumbnailUrl: NSURL?
     
-    let title: String;
+    let title: String
+    let image = UIImage(named: "theme_thumb")!
     
-    let trackingId: String;
+    let trackingId: String
     
     init(json: NSDictionary)
     {
