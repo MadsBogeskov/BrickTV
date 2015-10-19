@@ -18,57 +18,41 @@ class VideoCell: UICollectionViewCell {
     }
 }
 
-class ThemeViewController: UICollectionViewController {
+class ThemeViewController: UIViewController {
     var theme: Theme!
 
+    @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.clearsSelectionOnViewWillAppear = false
-        
-
     }
 }
 
 // MARK: - UICollectionViewDataSource
-extension ThemeViewController {
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+extension ThemeViewController: UICollectionViewDataSource {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 0
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         return collectionView.dequeueReusableCellWithReuseIdentifier(VideoCell.reuseIdentifier, forIndexPath: indexPath)
     }
     
-    override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         guard let _ = cell as? VideoCell else { fatalError("ahh ahh you didn't say the magic word!") }
     }
 }
 
 // MARK: - UICollectionViewDelegate
-extension ThemeViewController {
-    override func indexPathForPreferredFocusedViewInCollectionView(collectionView: UICollectionView) -> NSIndexPath? {
+extension ThemeViewController: UICollectionViewDelegateFlowLayout {
+    func indexPathForPreferredFocusedViewInCollectionView(collectionView: UICollectionView) -> NSIndexPath? {
         return NSIndexPath(forItem: 0, inSection: 0)
     }
     
-    override func collectionView(collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func collectionView(collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
-    }
-    
-    override func collectionView(collectionView: UICollectionView, shouldUpdateFocusInContext context: UICollectionViewFocusUpdateContext) -> Bool {
-        guard let indexPaths = collectionView.indexPathsForSelectedItems() else { return true }
-        return indexPaths.isEmpty
-    }
-    
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if let indexPath = collectionView.indexPathsForSelectedItems()?.first {
-            collectionView.deselectItemAtIndexPath(indexPath, animated: true)
-            return false
-        } else {
-            return true
-        }
     }
 }

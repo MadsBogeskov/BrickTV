@@ -8,8 +8,7 @@
 
 import UIKit
 
-class Theme: CustomStringConvertible
-{
+class Theme: CustomStringConvertible {
     let ageFrom: Int
     let ageTo: Int
     

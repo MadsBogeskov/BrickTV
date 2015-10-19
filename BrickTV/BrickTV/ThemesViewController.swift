@@ -44,7 +44,10 @@ class ThemeCell: UICollectionViewCell {
     
     func populate(theme: Theme) {
         label.text = theme.title
-        imageView.image = theme.image
+        imageView.image = theme.thumbnailImage
+        theme.loadThumbnailImage() { [unowned self] in
+            self.imageView.image = theme.thumbnailImage
+        }
     }
 }
 
@@ -55,9 +58,11 @@ class ThemesViewController: UICollectionViewController {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = false
         
-        Catalog().themes { (t) -> () in
-            self.themes = t
-            self.collectionView?.reloadData()
+        Catalog().themes { (themes) -> () in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.themes = themes
+                self.collectionView?.reloadData()
+            })
         }
     }
 }
@@ -91,19 +96,5 @@ extension ThemesViewController {
     
     override func collectionView(collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
-    }
-    
-    override func collectionView(collectionView: UICollectionView, shouldUpdateFocusInContext context: UICollectionViewFocusUpdateContext) -> Bool {
-        guard let indexPaths = collectionView.indexPathsForSelectedItems() else { return true }
-        return indexPaths.isEmpty
-    }
-    
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if let indexPath = collectionView.indexPathsForSelectedItems()?.first {
-            collectionView.deselectItemAtIndexPath(indexPath, animated: true)
-            return false
-        } else {
-            return true  
-        }  
-    }
+    }    
 }
