@@ -67,6 +67,16 @@ class ThemesViewController: UICollectionViewController {
     }
 }
 
+// MARK: - Segue
+extension ThemesViewController {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let themeViewController = segue.destinationViewController as? ThemeViewController, cell = sender as? ThemeCell, indexPath = self.collectionView?.indexPathForCell(cell) {
+            let theme = themes[indexPath.item]
+            themeViewController.theme = theme
+        }
+    }
+}
+
 // MARK: - UICollectionViewDataSource
 extension ThemesViewController {
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

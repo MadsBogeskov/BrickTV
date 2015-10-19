@@ -19,11 +19,22 @@ class VideoCell: UICollectionViewCell {
 }
 
 class ThemeViewController: UIViewController {
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var loadingView: UIVisualEffectView!
+    @IBOutlet weak var loadingLabel: UILabel!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     var theme: Theme!
 
-    @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadingLabel.text = theme.title
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        UIView.animateWithDuration(0.35, delay: 0.5, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+            self.loadingIndicator.alpha = 1
+            }, completion: nil)
     }
 }
 

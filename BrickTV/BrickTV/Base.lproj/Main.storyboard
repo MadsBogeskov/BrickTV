@@ -140,17 +140,57 @@
                                     <outlet property="delegate" destination="Jua-5X-y2K" id="doi-bo-RfW"/>
                                 </connections>
                             </collectionView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hpZ-97-dv1">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3u2-vU-45F">
+                                    <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zYj-iD-Ktt">
+                                            <rect key="frame" x="924" y="481" width="72" height="119"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGR-uG-Thm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="72" height="35"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="V6f-Vo-Vpr">
+                                                    <rect key="frame" x="4" y="55" width="64" height="64"/>
+                                                    <animations/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <animations/>
+                                        </stackView>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="zYj-iD-Ktt" firstAttribute="centerY" secondItem="3u2-vU-45F" secondAttribute="centerY" id="2hP-En-acz"/>
+                                        <constraint firstItem="zYj-iD-Ktt" firstAttribute="centerX" secondItem="3u2-vU-45F" secondAttribute="centerX" id="w3t-nU-bON"/>
+                                    </constraints>
+                                </view>
+                                <animations/>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                         </subviews>
                         <animations/>
                         <constraints>
                             <constraint firstItem="75p-Tx-kGN" firstAttribute="top" secondItem="3mb-NR-Oqb" secondAttribute="bottom" id="BGf-U4-C3S"/>
+                            <constraint firstItem="hpZ-97-dv1" firstAttribute="top" secondItem="3mb-NR-Oqb" secondAttribute="bottom" id="P57-IT-cad"/>
+                            <constraint firstAttribute="trailing" secondItem="hpZ-97-dv1" secondAttribute="trailing" id="YVq-4m-gjm"/>
                             <constraint firstAttribute="trailing" secondItem="75p-Tx-kGN" secondAttribute="trailing" id="fJH-Qy-CbJ"/>
                             <constraint firstItem="75p-Tx-kGN" firstAttribute="leading" secondItem="Awg-hQ-cHr" secondAttribute="leading" id="iig-bm-LN8"/>
                             <constraint firstItem="voB-X6-aKs" firstAttribute="top" secondItem="75p-Tx-kGN" secondAttribute="bottom" id="kxh-eq-hVH"/>
+                            <constraint firstItem="voB-X6-aKs" firstAttribute="top" secondItem="hpZ-97-dv1" secondAttribute="bottom" id="q9f-cT-hUl"/>
+                            <constraint firstItem="hpZ-97-dv1" firstAttribute="leading" secondItem="Awg-hQ-cHr" secondAttribute="leading" id="zPV-lU-YRk"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="75p-Tx-kGN" id="825-LF-N21"/>
+                        <outlet property="loadingIndicator" destination="V6f-Vo-Vpr" id="BS0-fR-YMm"/>
+                        <outlet property="loadingLabel" destination="eGR-uG-Thm" id="Foi-ob-yos"/>
+                        <outlet property="loadingView" destination="hpZ-97-dv1" id="jBI-f3-rEg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gV9-HU-kRT" userLabel="First Responder" sceneMemberID="firstResponder"/>
