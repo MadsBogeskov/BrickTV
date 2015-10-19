@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "tv",
-      "filename" : "Foreground.png",
+      "filename" : "foreground.png",
       "scale" : "1x"
     }
   ],
