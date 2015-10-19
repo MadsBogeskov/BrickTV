@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C5DB32001BD4E5E5009FC2A9 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DB31FF1BD4E5E5009FC2A9 /* VideoPlayerViewController.swift */; };
+		C5DB32021BD4F859009FC2A9 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DB32011BD4F859009FC2A9 /* ThemesViewController.swift */; };
 		E3B2E3991BD4C7A90015DD6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2E3981BD4C7A90015DD6B /* AppDelegate.swift */; };
 		E3B2E39B1BD4C7A90015DD6B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2E39A1BD4C7A90015DD6B /* FirstViewController.swift */; };
 		E3B2E39D1BD4C7A90015DD6B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2E39C1BD4C7A90015DD6B /* SecondViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		C5DB31FF1BD4E5E5009FC2A9 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		C5DB32011BD4F859009FC2A9 /* ThemesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
 		E3B2E3951BD4C7A90015DD6B /* BrickTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrickTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3B2E3981BD4C7A90015DD6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3B2E39A1BD4C7A90015DD6B /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				E3B2E3A31BD4C7A90015DD6B /* Info.plist */,
 				C5DB31FF1BD4E5E5009FC2A9 /* VideoPlayerViewController.swift */,
 				E3B2E3AE1BD4FBEC0015DD6B /* AwesomeNetworkLayer.swift */,
+				C5DB32011BD4F859009FC2A9 /* ThemesViewController.swift */,
 			);
 			path = BrickTV;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				E3B2E3B11BD4FECD0015DD6B /* Video.swift in Sources */,
 				E3B2E39B1BD4C7A90015DD6B /* FirstViewController.swift in Sources */,
 				E3B2E3AB1BD4EF090015DD6B /* Catalog.swift in Sources */,
+				C5DB32021BD4F859009FC2A9 /* ThemesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
