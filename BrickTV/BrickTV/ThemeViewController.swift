@@ -45,8 +45,11 @@ class VideoCell: UICollectionViewCell {
     internal func populate(video: Video) {
         label.text = video.title
         imageView.image = video.thumbnailImage
-        video.loadThumbnailImage() { [unowned self] in
-            self.imageView.image = video.thumbnailImage
+        video.loadThumbnailImage() { [weak self] in
+            if let wself = self
+            {
+                wself.imageView.image = video.thumbnailImage
+            }
         }
     }
 }

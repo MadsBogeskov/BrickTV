@@ -71,8 +71,7 @@ class RecentlyWatchedViewController: UICollectionViewController {
             }
             
             doLotsOfRequests(requests, createObject: { (dic) -> Video? in
-                print("COUNT ME IN")
-                if dic["Video"] === NSNull() { print("NULLL"); return nil }
+                if dic["Video"] === NSNull() { return nil }
                 return Video(json: dic)
                 }, completionHandler: { (objs) -> () in
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -87,7 +86,7 @@ class RecentlyWatchedViewController: UICollectionViewController {
 // MARK: - Segue
 extension RecentlyWatchedViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let videoPlayerViewController = segue.destinationViewController as? VideoPlayerViewController, cell = sender as? VideoCell, indexPath = self.collectionView?.indexPathForCell(cell) {
+        if let videoPlayerViewController = segue.destinationViewController as? VideoInfoViewController, cell = sender as? VideoCell, indexPath = self.collectionView?.indexPathForCell(cell) {
             let video = videos[indexPath.item]
             videoPlayerViewController.video = video
         }
