@@ -42,8 +42,6 @@ public func doLotsOfRequests<T>(requests: [NSURLRequest], createObject: (NSDicti
             return
         }
         
-        print(json)
-        
         let object = createObject(json)
         let remaining = requests[0..<requests.count - 1]
         

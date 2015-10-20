@@ -91,7 +91,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="340" height="400"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bkp-Te-GWD">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bkp-Te-GWD">
                                             <rect key="frame" x="0.0" y="0.0" width="340" height="330"/>
                                             <animations/>
                                             <constraints>
@@ -379,13 +379,13 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eR-Nz-TYs">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eR-Nz-TYs">
                                                         <rect key="frame" x="100" y="200" width="733" height="21"/>
                                                         <animations/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="733" id="zfJ-y3-fMb"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -398,7 +398,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3Q-by-9jk">
-                                                        <rect key="frame" x="885" y="865" width="152" height="86"/>
+                                                        <rect key="frame" x="884" y="865" width="152" height="86"/>
                                                         <animations/>
                                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                         <state key="normal" title="Play"/>
@@ -411,6 +411,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="p3Q-by-9jk" secondAttribute="bottom" constant="130" id="16W-8M-a1a"/>
                                                     <constraint firstItem="6eR-Nz-TYs" firstAttribute="top" secondItem="3zS-4w-GkN" secondAttribute="bottom" constant="16" id="7fT-X7-lQR"/>
+                                                    <constraint firstItem="9sc-2y-M23" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3zS-4w-GkN" secondAttribute="trailing" constant="16" id="P7o-lZ-vkr"/>
                                                     <constraint firstAttribute="trailing" secondItem="9sc-2y-M23" secondAttribute="trailing" constant="97" id="RHJ-tN-ttD"/>
                                                     <constraint firstItem="3zS-4w-GkN" firstAttribute="leading" secondItem="jCa-fs-hAz" secondAttribute="leading" constant="100" id="SY1-KI-BbA"/>
                                                     <constraint firstItem="p3Q-by-9jk" firstAttribute="centerX" secondItem="jCa-fs-hAz" secondAttribute="centerX" id="Txc-pq-VeD"/>
@@ -501,6 +502,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Bfx-ab-E4R"/>
+        <segue reference="1DQ-0N-bU6"/>
     </inferredMetricsTieBreakers>
 </document>
