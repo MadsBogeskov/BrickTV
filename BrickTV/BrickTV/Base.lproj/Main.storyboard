@@ -5,6 +5,74 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
+        <!--Recently Watched-->
+        <scene sceneID="39I-Fz-fwA">
+            <objects>
+                <collectionViewController id="IEd-N9-LYi" userLabel="Recently Watched" customClass="RecentlyWatchedViewController" customModule="BrickTV" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="OIk-1H-oxo">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="40" minimumInteritemSpacing="40" id="Q1I-MS-gZC">
+                            <size key="itemSize" width="320" height="400"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="80" minY="80" maxX="80" maxY="80"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="gGU-9E-klK" customClass="VideoCell" customModule="BrickTV" customModuleProvider="target">
+                                <rect key="frame" x="80" y="220" width="340" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="340" height="400"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bkp-Te-GWD">
+                                            <rect key="frame" x="0.0" y="0.0" width="340" height="330"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Bkp-Te-GWD" secondAttribute="height" multiplier="34:33" id="U2W-hl-qBX"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8CO-a7-I8Y">
+                                            <rect key="frame" x="0.0" y="365" width="340" height="35"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="8CO-a7-I8Y" secondAttribute="trailing" id="2UW-jA-a5X"/>
+                                    <constraint firstItem="8CO-a7-I8Y" firstAttribute="top" secondItem="Bkp-Te-GWD" secondAttribute="bottom" constant="35" id="3X8-Ex-k8I"/>
+                                    <constraint firstItem="Bkp-Te-GWD" firstAttribute="leading" secondItem="gGU-9E-klK" secondAttribute="leading" id="Icu-Vj-KeM"/>
+                                    <constraint firstAttribute="bottom" secondItem="8CO-a7-I8Y" secondAttribute="bottom" id="Tvi-Es-Wd4"/>
+                                    <constraint firstItem="8CO-a7-I8Y" firstAttribute="leading" secondItem="gGU-9E-klK" secondAttribute="leading" id="cC1-xX-I7P"/>
+                                    <constraint firstItem="Bkp-Te-GWD" firstAttribute="top" secondItem="gGU-9E-klK" secondAttribute="top" id="hn9-2J-N4l"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bkp-Te-GWD" secondAttribute="trailing" id="t1B-4s-8rn"/>
+                                </constraints>
+                                <size key="customSize" width="340" height="400"/>
+                                <connections>
+                                    <outlet property="imageView" destination="Bkp-Te-GWD" id="WdS-E4-pAY"/>
+                                    <outlet property="label" destination="8CO-a7-I8Y" id="MlN-nn-b8r"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="IEd-N9-LYi" id="D1G-X7-yTG"/>
+                            <outlet property="delegate" destination="IEd-N9-LYi" id="rAh-ap-3GZ"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Recently Watched" id="0hR-aV-1AC"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B5d-AV-3K5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2134" y="5"/>
+        </scene>
         <!--Themes-->
         <scene sceneID="RhE-XA-VUv">
             <objects>
@@ -232,11 +300,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="7ms-sV-9db" kind="relationship" relationship="viewControllers" id="n5w-z5-Mvr"/>
+                        <segue destination="IEd-N9-LYi" kind="relationship" relationship="viewControllers" id="rS8-sF-cws"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="136" y="5"/>
         </scene>
     </scenes>
 </document>

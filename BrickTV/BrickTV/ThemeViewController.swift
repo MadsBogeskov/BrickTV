@@ -42,7 +42,7 @@ class VideoCell: UICollectionViewCell {
             }, completion: nil)
     }
     
-    func populdate(video: Video) {
+    internal func populate(video: Video) {
         label.text = video.title
         imageView.image = video.thumbnailImage
         video.loadThumbnailImage() { [unowned self] in
@@ -66,7 +66,7 @@ class ThemeViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        UIView.animateWithDuration(0.35, delay: 1, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+        UIView.animateWithDuration(0.35, delay: 0.3, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
             self.loadingIndicator.alpha = 1
             }) { (finished) -> Void in
                 self.theme.loadVideos({ (_) -> () in
@@ -107,7 +107,7 @@ extension ThemeViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         guard let cell = cell as? VideoCell else { fatalError("ahh ahh you didn't say the magic word!") }
         let video = theme.videos[indexPath.item]
-        cell.populdate(video)
+        cell.populate(video)
     }
 }
 
