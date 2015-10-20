@@ -44,16 +44,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-        let videoId = url.absoluteString.stringByReplacingOccurrencesOfString("bricktv://id?", withString: "")
+        let string = url.absoluteString.stringByReplacingOccurrencesOfString("bricktv://id?", withString: "")
+        
+        let parts = string.componentsSeparatedByString("&name=")
+        
+        let videoId = parts.first
+        let name = parts.last?.stringByRemovingPercentEncoding
         
         let loading = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LoadingViewController") as! LoadingViewController
         loading.action = { titleLabel, spinner in
-            titleLabel.text = videoId
+            
+            titleLabel.text = name ?? "Loading"
             spinner.hidden = false
             spinner.startAnimating()
             
             
-            guard let url = NSURL(string: "https://wwwsecure.lego.com/en-US/mediaplayer/api/video.json/\(videoId)") else {
+            guard let url = NSURL(string: "https://wwwsecure.lego.com/en-US/mediaplayer/api/video.json/\(videoId!)") else {
                 loading.dismissViewControllerAnimated(true, completion: nil)
                 return
             }

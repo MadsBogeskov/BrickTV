@@ -33,7 +33,7 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
             contentItem!.imageShape = .SDTV
             contentItem!.imageURL = video.thumbnailUrl
             contentItem?.title = video.title
-            contentItem?.displayURL = NSURL(string: "bricktv://id?\(video.id)")
+            contentItem?.displayURL = NSURL(string: "bricktv://id?\(video.id)&name=\(video.title.URLEncoded())")
             
             items.append(contentItem!)
         }
@@ -42,6 +42,8 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
         
         return [wrapperItem3]
     }
+    
+    
     
     var videos: [LegoVideo] = []
     
@@ -135,4 +137,32 @@ public func tryGetUrl(dictionary: NSDictionary, key: String) -> NSURL?
     }
     
     return nil
+}
+
+extension String {
+    
+    func URLEncoded() -> String {
+        
+        let characters = NSCharacterSet.URLQueryAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
+        
+        if let amp = Character("&").toInt()
+        {
+            characters.removeCharactersInRange(NSRange(location: amp, length: 1))
+        }
+        
+        guard let encodedString = self.stringByAddingPercentEncodingWithAllowedCharacters(characters) else {
+            return self
+        }
+        
+        return encodedString
+    }
+    
+}
+
+extension Character {
+    
+    func toInt() -> Int? {
+        return Int(String(self))
+    }
+    
 }
