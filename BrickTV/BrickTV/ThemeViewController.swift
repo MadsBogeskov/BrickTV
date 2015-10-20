@@ -86,6 +86,11 @@ extension ThemeViewController {
             let video = theme.videos[indexPath.item]
             videoPlayerViewController.video = video
         }
+        
+        if let videoPlayerViewController = segue.destinationViewController as? VideoInfoViewController, cell = sender as? VideoCell, indexPath = self.collectionView?.indexPathForCell(cell) {
+            let video = theme.videos[indexPath.item]
+            videoPlayerViewController.video = video
+        }
     }
 }
 

@@ -53,7 +53,7 @@ class ThemeCell: UICollectionViewCell {
 
 class ThemesViewController: UICollectionViewController {
     var themes = [Theme]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = false
@@ -73,6 +73,37 @@ extension ThemesViewController {
         if let themeViewController = segue.destinationViewController as? ThemeViewController, cell = sender as? ThemeCell, indexPath = self.collectionView?.indexPathForCell(cell) {
             let theme = themes[indexPath.item]
             themeViewController.theme = theme
+        }
+        
+        if let themeViewController = segue.destinationViewController as? UISplitViewController, cell = sender as? ThemeCell, indexPath = self.collectionView?.indexPathForCell(cell) {
+            
+            if let navigationController = themeViewController.viewControllers.first as? UINavigationController, details = navigationController.viewControllers.first as? VideoMenuTableViewController
+            {
+                let theme = themes[indexPath.item]
+                details.theme = theme
+            }
+            
+        }
+        
+        if let themeViewController = segue.destinationViewController as? LoadingViewController, cell = sender as? ThemeCell, indexPath = self.collectionView?.indexPathForCell(cell) {
+            
+            themeViewController.action = { (titleLabel, spinner) in
+                let theme = self.themes[indexPath.item]
+                titleLabel.text = theme.title
+                theme.loadVideos({ (_) -> () in
+                    let controller = self.storyboard?.instantiateViewControllerWithIdentifier("VideoBrowser") as! UISplitViewController
+                    
+                    
+                    if let navigationController = controller.viewControllers.first as? UINavigationController, details = navigationController.viewControllers.first as? VideoMenuTableViewController
+                    {
+                        details.theme = theme
+                    }
+                    
+                    self.dismissViewControllerAnimated(false, completion: { () -> Void in
+                        self.presentViewController(controller, animated: true, completion: nil)
+                    })
+                })
+            }
         }
     }
 }
@@ -106,5 +137,5 @@ extension ThemesViewController {
     
     override func collectionView(collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
-    }    
+    }
 }

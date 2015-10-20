@@ -124,12 +124,21 @@ class VideoFormat
 extension Video {
     func loadThumbnailImage(completion: () -> ()) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
-            guard let thumbnailUrl = self.thumbnailProcessed where thumbnailUrl.absoluteString.characters.count > 0 else {
+            guard let thumbnailUrl = self.imageLargeProcessed where thumbnailUrl.absoluteString.characters.count > 0 else {
                 completion()
                 return
             }
             
-            let image = UIImage(data: NSData(contentsOfURL: thumbnailUrl)!)!
+            guard let data = NSData(contentsOfURL: thumbnailUrl) else {
+                completion()
+                return
+            }
+            
+            guard let image = UIImage(data: data) else {
+                completion()
+                return
+            }
+            
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.thumbnailImage = image
                 completion()

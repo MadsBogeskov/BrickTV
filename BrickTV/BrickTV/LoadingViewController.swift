@@ -18,6 +18,9 @@ class LoadingViewController: UIViewController
     
     override func viewDidLoad()
     {
-        action!(titleLabel, spinner)
+        if let action = action
+        {
+            action(titleLabel, spinner)
+        }
     }
 }
