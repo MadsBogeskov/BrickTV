@@ -11,6 +11,7 @@ import AVKit
 
 class VideoPlayerViewController: AVPlayerViewController {
     var video: Video!
+    var observer: AnyObject? = nil
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -36,6 +37,16 @@ class VideoPlayerViewController: AVPlayerViewController {
         player?.play()
         
         registerViewOn(video)
+        let timer = CMTimeMake(1,1)
+        observer = player?.addPeriodicTimeObserverForInterval(timer, queue: dispatch_get_main_queue(), usingBlock: { (time) -> Void in
+            registerProgressOn(self.video, progress: Int(CMTimeGetSeconds(time)))
+        })
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard let observer = observer else {return}
+        player?.removeTimeObserver(observer)
     }
 
 }
