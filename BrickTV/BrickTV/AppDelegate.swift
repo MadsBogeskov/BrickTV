@@ -44,23 +44,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-
         let videoId = url.absoluteString.stringByReplacingOccurrencesOfString("bricktv://id?", withString: "")
-        print("I would like to play video with Id: \(videoId)")
+        
+        let loading = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LoadingViewController") as! LoadingViewController
+        loading.action = { titleLabel, spinner in
+            titleLabel.text = videoId
+            spinner.hidden = false
+            spinner.startAnimating()
+            
+            
+            guard let url = NSURL(string: "https://wwwsecure.lego.com/en-US/mediaplayer/api/video.json/\(videoId)") else {
+                loading.dismissViewControllerAnimated(true, completion: nil)
+                return
+            }
+            
+            doLotsOfRequests([NSMutableURLRequest(URL: url)], createObject: { (dic) -> Video? in
+                
+                if let message = dic["Message"]
+                {
+                    let controller = UIAlertController(title: "Failed to open URL", message: message as? String, preferredStyle: UIAlertControllerStyle.Alert)
+                    controller.addAction(UIAlertAction(title: "🙀", style: UIAlertActionStyle.Default, handler: nil))
+                    self.window?.rootViewController?.presentViewController(controller, animated: true, completion: nil)
+                    return nil
+                }
+                
+                return Video(json: dic)
+                }, completionHandler: { (videos) -> () in
+                    guard let video = videos.first else {
+                        loading.dismissViewControllerAnimated(true, completion: nil)
+                        return
+                    }
+                    
+                    let videoPlayer = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("VideoPlayerViewController") as! VideoPlayerViewController
+                    videoPlayer.video = video
+                    loading.dismissViewControllerAnimated(true, completion: { () -> Void in
+                        self.window?.rootViewController?.presentViewController(videoPlayer, animated: true, completion: nil)
+                    })
+            })
+        }
+    
+        self.window?.rootViewController?.presentViewController(loading, animated: true, completion: nil)
         
         return true
     }
     
-//    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
-//        
-//    }
-    
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         return true
     }
-    
-//    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
-//        
-//    }
 }
 

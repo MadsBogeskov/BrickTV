@@ -1,10 +1,74 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9052" systemVersion="15A284" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9058" systemVersion="15A284" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9040"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9048"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Loading View Controller-->
+        <scene sceneID="ykB-lG-cma">
+            <objects>
+                <viewController storyboardIdentifier="LoadingViewController" id="6wd-OE-Ipj" customClass="LoadingViewController" customModule="BrickTV" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CPH-Di-JXC"/>
+                        <viewControllerLayoutGuide type="bottom" id="BEC-2I-lKv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hrb-dZ-Dmy">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCx-de-A0u">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="k2L-0F-QXK">
+                                    <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jJ3-Ks-TS1">
+                                            <rect key="frame" x="924" y="481" width="72" height="119"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1V-SL-zM6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="72" height="35"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="tNW-bk-bTJ">
+                                                    <rect key="frame" x="4" y="55" width="64" height="64"/>
+                                                    <animations/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <animations/>
+                                        </stackView>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="jJ3-Ks-TS1" firstAttribute="centerY" secondItem="k2L-0F-QXK" secondAttribute="centerY" id="3dg-BR-hVH"/>
+                                        <constraint firstItem="jJ3-Ks-TS1" firstAttribute="centerX" secondItem="k2L-0F-QXK" secondAttribute="centerX" id="CTe-dB-BpL"/>
+                                    </constraints>
+                                </view>
+                                <animations/>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="JCx-de-A0u" secondAttribute="bottom" id="24O-RG-co5"/>
+                            <constraint firstAttribute="topMargin" secondItem="JCx-de-A0u" secondAttribute="top" id="5Yz-yI-Kih"/>
+                            <constraint firstAttribute="trailing" secondItem="JCx-de-A0u" secondAttribute="trailing" id="E6O-2r-L4r"/>
+                            <constraint firstItem="JCx-de-A0u" firstAttribute="leading" secondItem="hrb-dZ-Dmy" secondAttribute="leading" id="PtL-95-CAC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="spinner" destination="tNW-bk-bTJ" id="Ef3-q9-tZV"/>
+                        <outlet property="titleLabel" destination="L1V-SL-zM6" id="GOg-fC-jEl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FYT-dp-baT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-252" y="2385"/>
+        </scene>
         <!--Themes-->
         <scene sceneID="RhE-XA-VUv">
             <objects>
@@ -204,7 +268,7 @@
         <!--Video Player View Controller-->
         <scene sceneID="SvS-Z8-Mrc">
             <objects>
-                <viewController id="3FU-0K-h0r" customClass="VideoPlayerViewController" customModule="BrickTV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VideoPlayerViewController" id="3FU-0K-h0r" customClass="VideoPlayerViewController" customModule="BrickTV" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c0n-zX-Xgr"/>
                         <viewControllerLayoutGuide type="bottom" id="XkK-Qg-dlo"/>

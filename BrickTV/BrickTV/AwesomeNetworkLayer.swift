@@ -23,7 +23,7 @@ public func tryGetUrl(dictionary: NSDictionary, key: String) -> NSURL?
     return nil
 }
 
-public func doLotsOfRequests<T>(requests: [NSURLRequest], createObject: (NSDictionary) -> T, completionHandler: ([T] -> ()))
+public func doLotsOfRequests<T>(requests: [NSURLRequest], createObject: (NSDictionary) -> T?, completionHandler: ([T] -> ()))
 {
     guard let request = requests.last else {
         completionHandler([])
@@ -44,16 +44,23 @@ public func doLotsOfRequests<T>(requests: [NSURLRequest], createObject: (NSDicti
         
         if remaining.count > 1
         {
-            doRequest(Array(remaining), createObject: createObject, currentObjects: [object], completionHandler: completionHandler)
+            doRequest(Array(remaining), createObject: createObject, currentObjects: [object!], completionHandler: completionHandler)
         }
         else
         {
-            completionHandler([object])
+            if let object = object
+            {
+                completionHandler([object])
+            }
+            else
+            {
+                completionHandler([])
+            }
         }
     }).resume()
 }
 
-public func doRequest<T>(requests: [NSURLRequest], createObject: (NSDictionary) -> T, currentObjects: [T], completionHandler: ([T] -> ()))
+public func doRequest<T>(requests: [NSURLRequest], createObject: (NSDictionary) -> T?, currentObjects: [T], completionHandler: ([T] -> ()))
 {
     guard let request = requests.last else {
         completionHandler(currentObjects)
@@ -72,7 +79,7 @@ public func doRequest<T>(requests: [NSURLRequest], createObject: (NSDictionary) 
         let object = createObject(json)
         let remaining = requests[0..<requests.count - 1]
         
-        let newObjects = currentObjects + [object]
+        let newObjects = object != nil ? currentObjects + [object!] : currentObjects
         
         if remaining.count > 1
         {
