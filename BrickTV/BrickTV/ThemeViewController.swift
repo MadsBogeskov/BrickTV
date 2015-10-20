@@ -84,18 +84,7 @@ extension ThemeViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let videoPlayerViewController = segue.destinationViewController as? VideoPlayerViewController, cell = sender as? VideoCell, indexPath = self.collectionView?.indexPathForCell(cell) {
             let video = theme.videos[indexPath.item]
-            
-            var adaptive: VideoFormat? = nil
-            var mp4s = [VideoFormat]()
-            for format in video.formats {
-                if format.quality == VideoFormat.Quality.Adaptive && format.format == VideoFormat.Format.M3U8 {
-                    adaptive = format
-                }
-                else if format.format == VideoFormat.Format.Mp4 {
-                    mp4s.append(format)
-                }
-            }
-            videoPlayerViewController.url = (adaptive != nil) ? adaptive!.url.absoluteString : mp4s.first!.url.absoluteString
+            videoPlayerViewController.video = video
         }
     }
 }
