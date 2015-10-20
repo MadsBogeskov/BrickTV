@@ -33,5 +33,16 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>BrickTV URL</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>bricktv</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

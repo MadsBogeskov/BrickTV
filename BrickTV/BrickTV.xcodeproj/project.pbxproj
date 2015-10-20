@@ -425,6 +425,7 @@
 				E322B38A1BD523A100F023DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E3B2E3901BD4C7A90015DD6B /* Build configuration list for PBXProject "BrickTV" */ = {
 			isa = XCConfigurationList;
