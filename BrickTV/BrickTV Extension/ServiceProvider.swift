@@ -129,16 +129,6 @@ class LegoVideo
     }
 }
 
-public func tryGetUrl(dictionary: NSDictionary, key: String) -> NSURL?
-{
-    if let value = dictionary[key] as? String, let url = NSURL(string: value)
-    {
-        return url
-    }
-    
-    return nil
-}
-
 extension String {
     
     func URLEncoded() -> String {

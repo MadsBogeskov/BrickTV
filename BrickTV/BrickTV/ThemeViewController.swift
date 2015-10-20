@@ -56,6 +56,7 @@ class VideoCell: UICollectionViewCell {
         print(video.progress)
         print(video.lengthInSeconds)
         progressView.progress = Float(video.progress) / Float(video.lengthInSeconds)
+        progressView.hidden = video.progress == 0
     }
 }
 

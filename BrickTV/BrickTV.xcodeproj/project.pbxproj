@@ -18,6 +18,8 @@
 		E37FF6301BD62BF600D99572 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37FF62E1BD62BF600D99572 /* LoadingViewController.swift */; };
 		E37FF6321BD63F3700D99572 /* VideoMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37FF6311BD63F3700D99572 /* VideoMenuTableViewController.swift */; };
 		E37FF6351BD64C7800D99572 /* VideoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37FF6341BD64C7800D99572 /* VideoInfoViewController.swift */; };
+		E37FF6371BD667E500D99572 /* AwesomeNetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2E3AE1BD4FBEC0015DD6B /* AwesomeNetworkLayer.swift */; };
+		E37FF6381BD668DC00D99572 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2E3B01BD4FECD0015DD6B /* Video.swift */; };
 		E3B2E3991BD4C7A90015DD6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2E3981BD4C7A90015DD6B /* AppDelegate.swift */; };
 		E3B2E3A01BD4C7A90015DD6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3B2E39E1BD4C7A90015DD6B /* Main.storyboard */; };
 		E3B2E3A21BD4C7A90015DD6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3B2E3A11BD4C7A90015DD6B /* Assets.xcassets */; };
@@ -258,6 +260,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E37FF6371BD667E500D99572 /* AwesomeNetworkLayer.swift in Sources */,
+				E37FF6381BD668DC00D99572 /* Video.swift in Sources */,
 				E322B3831BD523A100F023DF /* ServiceProvider.swift in Sources */,
 				E37FF6301BD62BF600D99572 /* LoadingViewController.swift in Sources */,
 			);
