@@ -237,8 +237,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="75p-Tx-kGN">
-                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="75p-Tx-kGN">
+                                <rect key="frame" x="0.0" y="140" width="1920" height="940"/>
                                 <animations/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="40" id="j92-aF-ElZ">
                                     <size key="itemSize" width="500" height="400"/>
@@ -266,23 +266,30 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Theme Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DkZ-iD-Nl8">
-                                                    <rect key="frame" x="0.0" y="365" width="340" height="35"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DkZ-iD-Nl8">
+                                                    <rect key="frame" x="0.0" y="365" width="500" height="35"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xlG-JW-MPr">
+                                                    <rect key="frame" x="8" y="346" width="484" height="10"/>
+                                                    <animations/>
+                                                </progressView>
                                             </subviews>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
                                         <constraints>
+                                            <constraint firstItem="xlG-JW-MPr" firstAttribute="leading" secondItem="Ila-Q4-5Ip" secondAttribute="leadingMargin" id="4lO-sB-g9R"/>
+                                            <constraint firstItem="xlG-JW-MPr" firstAttribute="top" secondItem="mGl-nr-sgi" secondAttribute="bottom" constant="16" id="BpK-Fb-X6d"/>
                                             <constraint firstItem="DkZ-iD-Nl8" firstAttribute="leading" secondItem="Ila-Q4-5Ip" secondAttribute="leading" id="L3d-Ga-H5Z"/>
                                             <constraint firstItem="mGl-nr-sgi" firstAttribute="leading" secondItem="Ila-Q4-5Ip" secondAttribute="leading" id="LRR-nd-Gdj"/>
                                             <constraint firstItem="DkZ-iD-Nl8" firstAttribute="top" secondItem="mGl-nr-sgi" secondAttribute="bottom" constant="35" id="M2j-0E-iOZ"/>
                                             <constraint firstItem="mGl-nr-sgi" firstAttribute="top" secondItem="Ila-Q4-5Ip" secondAttribute="top" id="N7j-Lc-82w"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="xlG-JW-MPr" secondAttribute="trailing" id="OTZ-VV-xNe"/>
                                             <constraint firstAttribute="trailing" secondItem="mGl-nr-sgi" secondAttribute="trailing" id="RE4-fv-IsY"/>
                                             <constraint firstAttribute="bottom" secondItem="DkZ-iD-Nl8" secondAttribute="bottom" id="XOM-fS-8EI"/>
                                             <constraint firstAttribute="trailing" secondItem="DkZ-iD-Nl8" secondAttribute="trailing" id="hQa-Nu-NQN"/>
@@ -291,6 +298,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="mGl-nr-sgi" id="LDY-vL-GU2"/>
                                             <outlet property="label" destination="DkZ-iD-Nl8" id="BOD-yE-pet"/>
+                                            <outlet property="progressView" destination="xlG-JW-MPr" id="sEl-jQ-4c0"/>
                                             <segue destination="O4W-qC-H9L" kind="show" id="oCq-3e-cij"/>
                                         </connections>
                                     </collectionViewCell>
@@ -300,14 +308,14 @@
                                     <outlet property="delegate" destination="Jua-5X-y2K" id="doi-bo-RfW"/>
                                 </connections>
                             </collectionView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hpZ-97-dv1">
-                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hpZ-97-dv1">
+                                <rect key="frame" x="0.0" y="140" width="1920" height="940"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3u2-vU-45F">
-                                    <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1920" height="940"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zYj-iD-Ktt">
-                                            <rect key="frame" x="924" y="481" width="77" height="121"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zYj-iD-Ktt">
+                                            <rect key="frame" x="922" y="410" width="77" height="121"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGR-uG-Thm">
                                                     <rect key="frame" x="0.0" y="0.0" width="77" height="37"/>
@@ -317,7 +325,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="V6f-Vo-Vpr">
-                                                    <rect key="frame" x="6" y="57" width="64" height="64"/>
+                                                    <rect key="frame" x="7" y="57" width="64" height="64"/>
                                                     <animations/>
                                                 </activityIndicatorView>
                                             </subviews>
@@ -515,6 +523,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Duj-td-qPn"/>
+        <segue reference="oCq-3e-cij"/>
     </inferredMetricsTieBreakers>
 </document>

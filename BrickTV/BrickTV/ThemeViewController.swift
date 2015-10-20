@@ -53,10 +53,15 @@ class VideoCell: UICollectionViewCell {
             }
         }
         
-        print(video.progress)
-        print(video.lengthInSeconds)
-        progressView.progress = Float(video.progress) / Float(video.lengthInSeconds)
-        progressView.hidden = video.progress == 0 || video.progress >= video.lengthInSeconds
+        if progressView != nil
+        {
+            progressView.hidden = video.progress == 0 || video.progress >= video.lengthInSeconds
+            
+            if progressView.hidden == false
+            {
+                progressView.progress = Float(video.progress) / Float(video.lengthInSeconds)
+            }
+        }
     }
 }
 
@@ -78,11 +83,15 @@ class ThemeViewController: UIViewController {
         UIView.animateWithDuration(0.35, delay: 0.3, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
             self.loadingIndicator.alpha = 1
             }) { (finished) -> Void in
+                print("Starting load")
                 self.theme.loadVideos({ (_) -> () in
-                    self.collectionView.reloadData()
-                    UIView.animateWithDuration(0.35, animations: { () -> Void in
-                        self.loadingView.alpha = 0
-                    })
+
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.collectionView.reloadData()
+                        UIView.animateWithDuration(0.35, animations: { () -> Void in
+                            self.loadingView.alpha = 0
+                        })
+                    }
                 })
         }
     }
