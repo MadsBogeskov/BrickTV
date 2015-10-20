@@ -20,7 +20,7 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
         print("Getting top drawer items")
         let wrapperID3 = TVContentIdentifier(identifier: "lego-stuff", container: nil)!
         let wrapperItem3 = TVContentItem(contentIdentifier: wrapperID3)!
-        wrapperItem3.title = "My LEGO"
+        wrapperItem3.title = "BrickTV"
         
         var items: [TVContentItem] = []
         for video in videos
