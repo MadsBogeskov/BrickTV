@@ -123,6 +123,7 @@
                                 <connections>
                                     <outlet property="imageView" destination="Bkp-Te-GWD" id="WdS-E4-pAY"/>
                                     <outlet property="label" destination="8CO-a7-I8Y" id="MlN-nn-b8r"/>
+                                    <segue destination="3FU-0K-h0r" kind="presentation" id="1DQ-0N-bU6"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -499,4 +500,7 @@
             <point key="canvasLocation" x="136" y="5"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="1DQ-0N-bU6"/>
+    </inferredMetricsTieBreakers>
 </document>
