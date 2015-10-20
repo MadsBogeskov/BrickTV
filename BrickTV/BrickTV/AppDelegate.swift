@@ -75,11 +75,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         return
                     }
                     
-                    let videoPlayer = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("VideoPlayerViewController") as! VideoPlayerViewController
+                    let videoPlayer = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("VideoInfoViewController") as! VideoInfoViewController
                     videoPlayer.video = video
-                    loading.dismissViewControllerAnimated(true, completion: { () -> Void in
-                        self.window?.rootViewController?.presentViewController(videoPlayer, animated: true, completion: nil)
-                    })
+                    video.loadThumbnailImage {
+                        loading.dismissViewControllerAnimated(true, completion: { () -> Void in
+                            self.window?.rootViewController?.presentViewController(videoPlayer, animated: true, completion: nil)
+                        })
+                    }
             })
         }
     
