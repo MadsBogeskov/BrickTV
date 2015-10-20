@@ -34,6 +34,9 @@ class VideoPlayerViewController: AVPlayerViewController {
         let url = (adaptive != nil) ? adaptive!.url : mp4s.first!.url
         
         player = AVPlayer(URL: url)
+        if video.progress < video.lengthInSeconds {
+            player?.seekToTime(CMTimeMakeWithSeconds(Double(video.progress), 1))
+        }
         player?.play()
         
         registerViewOn(video)
