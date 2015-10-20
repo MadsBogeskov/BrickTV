@@ -96,8 +96,25 @@ class Theme: CustomStringConvertible {
                 Video(json: dic)
                 }, completionHandler: { (objs) -> () in
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.videos = objs
-                        completionHandler(objs)
+                        
+                        getProgress({ (progressObjects) -> () in
+                            
+                            for proObj in progressObjects
+                            {
+                                for video in objs
+                                {
+                                    if video.id == proObj.0
+                                    {
+                                        video.progress = proObj.1
+                                        break
+                                    }
+                                }
+                            }
+                            
+                            self.videos = objs
+                            completionHandler(objs)
+                            
+                        })
                     })
             })
         }).resume()

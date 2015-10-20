@@ -12,6 +12,7 @@ class VideoCell: UICollectionViewCell {
     static let reuseIdentifier = "VideoCell"
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var progressView: UIProgressView!
     
     // MARK: - Initialization
     
@@ -51,6 +52,8 @@ class VideoCell: UICollectionViewCell {
                 wself.imageView.image = video.thumbnailImage
             }
         }
+        
+        progressView.progress = Float(video.progress / video.lengthInSeconds)
     }
 }
 

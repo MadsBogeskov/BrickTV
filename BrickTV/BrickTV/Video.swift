@@ -21,6 +21,9 @@ class Video: CustomStringConvertible {
     let imageLargeProcessed: NSURL?
     let formats: [VideoFormat]
     
+    var progress: Int = 0
+    var lengthInSeconds: Int
+    
     init(json: NSDictionary)
     {
         let videoJson = json["Video"] as! NSDictionary
@@ -28,6 +31,15 @@ class Video: CustomStringConvertible {
         id = (videoJson["Id"] as! String).stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "{}"))
         videoFileId = videoJson["VideoFileId"] as! String
         title = videoJson["Title"] as! String
+        
+        if let lis = videoJson["LengthInSeconds"], s = lis.description, i = Int(s)
+        {
+            lengthInSeconds = i
+        }
+        else
+        {
+            lengthInSeconds = 0
+        }
         
         key = videoJson["Key"] as! String
         themeThumbnailUrl = tryGetUrl(videoJson, key: "ThemeThumbnailUrl")

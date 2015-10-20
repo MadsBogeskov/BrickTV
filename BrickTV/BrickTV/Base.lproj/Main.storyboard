@@ -110,6 +110,10 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yhd-SE-hVi">
+                                            <rect key="frame" x="8" y="340" width="484" height="10"/>
+                                            <animations/>
+                                        </progressView>
                                     </subviews>
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -119,8 +123,11 @@
                                     <constraint firstAttribute="trailing" secondItem="8CO-a7-I8Y" secondAttribute="trailing" id="2UW-jA-a5X"/>
                                     <constraint firstItem="8CO-a7-I8Y" firstAttribute="top" secondItem="Bkp-Te-GWD" secondAttribute="bottom" constant="35" id="3X8-Ex-k8I"/>
                                     <constraint firstItem="Bkp-Te-GWD" firstAttribute="leading" secondItem="gGU-9E-klK" secondAttribute="leading" id="Icu-Vj-KeM"/>
+                                    <constraint firstItem="yhd-SE-hVi" firstAttribute="top" secondItem="Bkp-Te-GWD" secondAttribute="bottom" constant="10" id="ItV-Ax-0fj"/>
                                     <constraint firstAttribute="bottom" secondItem="8CO-a7-I8Y" secondAttribute="bottom" id="Tvi-Es-Wd4"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="yhd-SE-hVi" secondAttribute="trailing" id="bMc-99-daO"/>
                                     <constraint firstItem="8CO-a7-I8Y" firstAttribute="leading" secondItem="gGU-9E-klK" secondAttribute="leading" id="cC1-xX-I7P"/>
+                                    <constraint firstItem="yhd-SE-hVi" firstAttribute="leading" secondItem="gGU-9E-klK" secondAttribute="leadingMargin" id="dMi-8x-9kl"/>
                                     <constraint firstItem="Bkp-Te-GWD" firstAttribute="top" secondItem="gGU-9E-klK" secondAttribute="top" id="hn9-2J-N4l"/>
                                     <constraint firstAttribute="trailing" secondItem="Bkp-Te-GWD" secondAttribute="trailing" id="t1B-4s-8rn"/>
                                 </constraints>
@@ -128,6 +135,7 @@
                                 <connections>
                                     <outlet property="imageView" destination="Bkp-Te-GWD" id="WdS-E4-pAY"/>
                                     <outlet property="label" destination="8CO-a7-I8Y" id="MlN-nn-b8r"/>
+                                    <outlet property="progressView" destination="yhd-SE-hVi" id="OGA-MG-C5k"/>
                                     <segue destination="O4W-qC-H9L" kind="show" id="Duj-td-qPn"/>
                                 </connections>
                             </collectionViewCell>
@@ -507,6 +515,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oCq-3e-cij"/>
+        <segue reference="Duj-td-qPn"/>
     </inferredMetricsTieBreakers>
 </document>

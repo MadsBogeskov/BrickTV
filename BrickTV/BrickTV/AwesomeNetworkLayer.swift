@@ -124,5 +124,42 @@ func registerViewOn(video: Video) {
     request.addValue("0", forHTTPHeaderField: "Content-Length")
     NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
         print(NSString(data: data!, encoding: 4), response, error)
-    }.resume()
+        }.resume()
+}
+
+func getProgress(completionHandler: ([(String, Int)] -> ()))
+{
+    let urlString = "https://services.videouserdata.lego.com/api/v1/progress/?limit=100"
+    let url = NSURL(string: urlString)!
+    let request = NSMutableURLRequest(URL: url)
+    request.HTTPMethod = "GET"
+    request.addValue(csrfToken, forHTTPHeaderField: "csrfToken")
+    request.addValue(cookie, forHTTPHeaderField: "Cookie")
+    request.addValue("application/json", forHTTPHeaderField: "Accept")
+    request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+    request.addValue("0", forHTTPHeaderField: "Content-Length")
+    NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+        
+        guard let data = data, json = try? NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) else {
+            completionHandler([])
+            return
+        }
+    
+        guard let videosInProgress = json["VideosInProgress"] as? NSArray else {
+            completionHandler([])
+            return
+        }
+        
+        var videoProgress: [(String, Int)] = []
+        for videoObject in videosInProgress
+        {
+            let videoId = videoObject["ObjectId"] as! String
+            let progress = videoObject["Progress"] as! Int
+            
+            videoProgress.append((videoId, progress))
+        }
+        
+        completionHandler(videoProgress)
+        
+        }.resume()
 }
