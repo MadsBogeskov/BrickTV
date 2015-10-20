@@ -53,7 +53,9 @@ class VideoCell: UICollectionViewCell {
             }
         }
         
-        progressView.progress = Float(video.progress / video.lengthInSeconds)
+        print(video.progress)
+        print(video.lengthInSeconds)
+        progressView.progress = Float(video.progress) / Float(video.lengthInSeconds)
     }
 }
 

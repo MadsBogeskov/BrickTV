@@ -33,6 +33,7 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
             contentItem!.imageShape = .SDTV
             contentItem!.imageURL = video.thumbnailUrl
             contentItem?.title = video.title
+            contentItem.
             contentItem?.displayURL = NSURL(string: "bricktv://id?\(video.id)&name=\(video.title.URLEncoded())")
             
             items.append(contentItem!)
