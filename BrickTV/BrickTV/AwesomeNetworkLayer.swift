@@ -28,12 +28,14 @@ public func tryGetUrl(dictionary: NSDictionary, key: String) -> NSURL?
 
 public func doLotsOfRequests<T>(requests: [NSURLRequest], createObject: (NSDictionary) -> T?, completionHandler: ([T] -> ()))
 {
+    print(requests)
     guard let request = requests.last else {
         completionHandler([])
         return
     }
 
     NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+        print(request)
         guard let data = data else {
             return
         }
@@ -45,7 +47,7 @@ public func doLotsOfRequests<T>(requests: [NSURLRequest], createObject: (NSDicti
         let object = createObject(json)
         let remaining = requests[0..<requests.count - 1]
         
-        if remaining.count > 1
+        if remaining.count > 0
         {
             doRequest(Array(remaining), createObject: createObject, currentObjects: object != nil ? [object!] : [], completionHandler: completionHandler)
         }
@@ -71,6 +73,7 @@ public func doRequest<T>(requests: [NSURLRequest], createObject: (NSDictionary) 
     }
     
     NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+        print(request)
         guard let data = data else {
             return
         }
@@ -84,7 +87,7 @@ public func doRequest<T>(requests: [NSURLRequest], createObject: (NSDictionary) 
         
         let newObjects = object != nil ? currentObjects + [object!] : currentObjects
         
-        if remaining.count > 1
+        if remaining.count > 0
         {
             doRequest(Array(remaining), createObject: createObject, currentObjects: newObjects, completionHandler: completionHandler)
         }

@@ -56,7 +56,6 @@ class RecentlyWatchedViewController: UICollectionViewController {
             guard let items = json["Views"] as? NSArray else {
                 return
             }
-            
             var requests: [NSMutableURLRequest] = []
             for item in (items as? [NSDictionary])!
             {
@@ -72,11 +71,12 @@ class RecentlyWatchedViewController: UICollectionViewController {
             }
             
             doLotsOfRequests(requests, createObject: { (dic) -> Video? in
-                if dic["Video"] === NSNull() { return nil }
+                print("COUNT ME IN")
+                if dic["Video"] === NSNull() { print("NULLL"); return nil }
                 return Video(json: dic)
                 }, completionHandler: { (objs) -> () in
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.videos = objs
+                        self.videos = objs.reverse()
                         self.collectionView?.reloadData()
                     })
             })
