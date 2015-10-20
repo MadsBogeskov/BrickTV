@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C53C22931BD514DD00A9D9B9 /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53C22921BD514DD00A9D9B9 /* ThemeViewController.swift */; };
+		C57580C61BD61AE700603955 /* RecentlyViewedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57580C51BD61AE700603955 /* RecentlyViewedViewController.swift */; };
 		C5DB32001BD4E5E5009FC2A9 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DB31FF1BD4E5E5009FC2A9 /* VideoPlayerViewController.swift */; };
 		C5DB32021BD4F859009FC2A9 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DB32011BD4F859009FC2A9 /* ThemesViewController.swift */; };
 		E322B3801BD523A100F023DF /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E322B37F1BD523A100F023DF /* TVServices.framework */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		C53C22921BD514DD00A9D9B9 /* ThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
+		C57580C51BD61AE700603955 /* RecentlyViewedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentlyViewedViewController.swift; sourceTree = "<group>"; };
 		C5DB31FF1BD4E5E5009FC2A9 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		C5DB32011BD4F859009FC2A9 /* ThemesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
 		E322B37D1BD523A100F023DF /* BrickTV Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "BrickTV Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +134,7 @@
 				E3B2E3AE1BD4FBEC0015DD6B /* AwesomeNetworkLayer.swift */,
 				C53C22921BD514DD00A9D9B9 /* ThemeViewController.swift */,
 				C5DB32011BD4F859009FC2A9 /* ThemesViewController.swift */,
+				C57580C51BD61AE700603955 /* RecentlyViewedViewController.swift */,
 			);
 			path = BrickTV;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				C5DB32001BD4E5E5009FC2A9 /* VideoPlayerViewController.swift in Sources */,
 				E3B2E3991BD4C7A90015DD6B /* AppDelegate.swift in Sources */,
 				E3B2E3AD1BD4F38C0015DD6B /* Theme.swift in Sources */,
+				C57580C61BD61AE700603955 /* RecentlyViewedViewController.swift in Sources */,
 				E3B2E3B11BD4FECD0015DD6B /* Video.swift in Sources */,
 				E3B2E3AB1BD4EF090015DD6B /* Catalog.swift in Sources */,
 				C5DB32021BD4F859009FC2A9 /* ThemesViewController.swift in Sources */,

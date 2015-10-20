@@ -10,21 +10,32 @@ import UIKit
 import AVKit
 
 class VideoPlayerViewController: AVPlayerViewController {
-    var url: String?
+    var video: Video!
     
-    init(url: String) {
-        super.init(nibName: nil, bundle: nil)
-        self.url = url
-    }
-
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        player = AVPlayer(URL: NSURL(string: url!)!)
+        
+        
+        var adaptive: VideoFormat? = nil
+        var mp4s = [VideoFormat]()
+        for format in video.formats {
+            if format.quality == VideoFormat.Quality.Adaptive && format.format == VideoFormat.Format.M3U8 {
+                adaptive = format
+            }
+            else if format.format == VideoFormat.Format.Mp4 {
+                mp4s.append(format)
+            }
+        }
+        let url = (adaptive != nil) ? adaptive!.url : mp4s.first!.url
+        
+        player = AVPlayer(URL: url)
         player?.play()
+        
+        registerViewOn(video)
     }
 
 }
